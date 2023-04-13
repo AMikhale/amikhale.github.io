@@ -1,1 +1,2 @@
-# Coming soon... (CMU 15-418 Project page)
+# 15-418 Project: Sudoku Solver Parallelization 
+<a href="https://amikhale.github.io/proposal"> Proposal </a>
