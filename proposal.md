@@ -18,13 +18,13 @@ For the background research on the project, we will use public domain informatio
 At this point, we intend to start the codebase from scratch, although this may be subject to change if we settle on a specific well-documented sequential algorithm to start on, in which case we may investigate existing open-source implementations. We will be working primarily on the Gates Hall Cluster machines, though as a stretch goal, we may try evaluating our code on the PSC machines as well. 
 
   <b>Goals and Deliverables:</b>
-  <i>Goals (Plan to Achieve):</i>
+ <i>Goals (Plan to Achieve):</i>
 - Sequential Version of the Sudoku Solver that is correct and reasonable.  
 - Parallel Version of the Sudoku Solver using OpenMP for a 4x speedup over the reference sequential solution on a 16 x 16 grid.  
 - Test Suite for benchmarking compatible with both implementations.
 - A final report about the performance of our algorithm and how much we have been able to improve it via parallelization. 
 
-  <i>Hope to Achieve:</i>
+ <i>Hope to Achieve:</i>
 - Parallel Version of the 16 x 16 Sudoku Solver with a 8x speedup. 
 - Solve 4, 8 Sudoku boards concurrently using CUDA on NVIDIA GPUs. 
 - Using PSC Bridges-2 Regular Memory machines for our evaluation.  
