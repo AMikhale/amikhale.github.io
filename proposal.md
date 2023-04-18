@@ -18,6 +18,7 @@ For the background research on the project, we will use public domain informatio
 At this point, we intend to start the codebase from scratch, although this may be subject to change if we settle on a specific well-documented sequential algorithm to start on, in which case we may investigate existing open-source implementations. We will be working primarily on the Gates Hall Cluster machines, though as a stretch goal, we may try evaluating our code on the PSC machines as well. 
 
   <b>Goals and Deliverables:</b>
+  
  <i>Goals (Plan to Achieve):</i>
 - Sequential Version of the Sudoku Solver that is correct and reasonable.  
 - Parallel Version of the Sudoku Solver using OpenMP for a 4x speedup over the reference sequential solution on a 16 x 16 grid.  
