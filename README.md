@@ -1,5 +1,7 @@
 # 15-418 Project: Sudoku Solver Parallelization 
 <a href="https://amikhale.github.io/proposal"> Proposal </a>
+<a href="https://amikhale.github.io/milestone"> Milestone Report </a>
+
 
 <h2> Schedule </h2>
 <table>
