@@ -5,7 +5,7 @@
 
 <h2> Schedule </h2>
 Key: <b>bold = completed</b>, <i>italics = in progress</i>
-
+<br><br>
 <table>
   <tr>
     <th>Dates</th>
@@ -50,8 +50,8 @@ Key: <b>bold = completed</b>, <i>italics = in progress</i>
     <td>04/21 - 04/23
 
 </td>
-    <td>•	Continue implementing various heuristics (for eliminating the options for each cell instead of defaulting to backtracking) to improve the general speedup of the algorithm, both parallel and sequential (Alex)</br>
-•	Investigate the possibility for incorporating CUDA, either within one board, for checking multiple elements at once, or for solving multiple boards at once (Thomas)</br>
+    <td>•	Continue implementing various heuristics (for eliminating the options for each cell instead of defaulting to backtracking) to improve the general speedup of the algorithm, both parallel and sequential (Alex)<br>
+•	Investigate the possibility for incorporating CUDA, either within one board, for checking multiple elements at once, or for solving multiple boards at once (Thomas)<br>
 
 </td>
   </tr>
@@ -59,8 +59,8 @@ Key: <b>bold = completed</b>, <i>italics = in progress</i>
     <td>04/24 - 04/27
 
 </td>
-    <td>•	Assuming we decide to use CUDA, actually incorporate it into our implementation in the appropriate way (Thomas) </br>
-•	Analyze bottlenecks that do not depend on heuristics (e.g., memory accesses and locality) and attempt to improve performance by optimizing them (Alex)</br>
+    <td>•	Assuming we decide to use CUDA, actually incorporate it into our implementation in the appropriate way (Thomas) <br>
+•	Analyze bottlenecks that do not depend on heuristics (e.g., memory accesses and locality) and attempt to improve performance by optimizing them (Alex)<br>
 
 
 </td>
@@ -70,7 +70,7 @@ Key: <b>bold = completed</b>, <i>italics = in progress</i>
     <td>04/28 - 04/30
 
 </td>
-    <td>•	Perform analyses using the previously developed test suite: speedup over sequential/one-thread implementation, speedup vs. the number of OpenMP threads, the effect of CUDA, etc. (Both)</br>
+    <td>•	Perform analyses using the previously developed test suite: speedup over sequential/one-thread implementation, speedup vs. the number of OpenMP threads, the effect of CUDA, etc. (Both)<br>
 
 </td>
   </tr>
@@ -79,9 +79,9 @@ Key: <b>bold = completed</b>, <i>italics = in progress</i>
     <td>05/01 - 05/01
 
 </td>
-    <td>•	Final pass over the code, fixing any issues (e.g. style) or last-minute bugs (Either) </br>
-•	Work on and submit the final report (Both, division of labor to be determined closer to the time)</br>
-•	Work on and present the posters at the poster session (ditto)</br>
+    <td>•	Final pass over the code, fixing any issues (e.g. style) or last-minute bugs (Either) <br>
+•	Work on and submit the final report (Both, division of labor to be determined closer to the time)<br>
+•	Work on and present the posters at the poster session (ditto)<br>
 
 
 </td>
