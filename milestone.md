@@ -23,7 +23,7 @@ Additionally, we have decided on an input format, and have begun compiling diffe
 Preliminary results: We do not currently have any preliminary results in regard to parallel speedup, which will be the main measure of performance for our project. We haven’t written any of the timing code yet, so we cannot accurately report the wall-clock speed with which our current sequential algorithms solves boards (though it greatly depends on the difficulty of the puzzle, ranging from less than a second for simpler ones to about 40 seconds for high difficulty). We plan to repurpose the timing code from the previous assignments to be able to meaningfully assess the performance of our algorithm once we are satisfied with its optimizations. 
 
   <b>Current issues:</b><br> 
-There are a few core issues that are currently in play:<br> 
+There are a few core issues that are currently in play:
 -	In adding additional heuristics for accelerating the solver, we are not sure if our current implementation of the different uniqueness checks before executing the cell fill actually takes longer than blind backtracking on the short and long runs.
 -	We are not yet sure how to use and configure the synchronization primitives required for safely parallelizing the solver.
 -	We are not sure yet what the optimal combination of different points of parallelization for performance is, and which ones would make the most sense under the OpenMP format. More specifically it will be very hard to maintain thread safety and solution correctness if we do not carefully blend the different levels of potential parallelism.
