@@ -65,7 +65,6 @@ Key: <b>bold = completed</b>, <i>italics = in progress</i>
 
 </td>
   </tr>
-    </tr>
     <tr>
     <td>04/28 - 04/30
 
@@ -73,7 +72,6 @@ Key: <b>bold = completed</b>, <i>italics = in progress</i>
     <td>•	Perform analyses using the previously developed test suite: speedup over sequential/one-thread implementation, speedup vs. the number of OpenMP threads, the effect of CUDA, etc. (Both)<br>
 
 </td>
-  </tr>
     </tr>
     <tr>
     <td>05/01 - 05/01
