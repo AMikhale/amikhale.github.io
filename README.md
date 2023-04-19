@@ -5,7 +5,6 @@
 
 <h2> Schedule </h2>
 Key: <b>bold = completed</b>, <i>italics = in progress</i>
-<br><br>
 <table>
   <tr>
     <th>Dates</th>
