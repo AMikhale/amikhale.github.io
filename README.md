@@ -1,6 +1,6 @@
 # 15-418 Project: Sudoku Solver Parallelization 
 <a href="https://amikhale.github.io/proposal"> Proposal </a> <br>
-<a href="https://amikhale.github.io/milestone"> Milestone Report </a>
+<a href="https://amikhale.github.io/milestone"> Milestone Report </a> <br>
 <a href="https://amikhale.github.io/final"> Final Report </a>
 
 
@@ -38,10 +38,10 @@ Key: <b>bold = completed</b>, <i>italics = in progress</i>
 
 </td>
     <td>
-<b>•	Submit project milestone report<br></b>
+<b>•	Submit project milestone report<br>
 •	Finish correct parallel implementation: locking stack to avoid segfaults, correctly placing barriers to ensure a thread does not exit prematurely (Alex)<br>
 •	Finish the development of a test suite consisting of 16 x 16 sudoku boards of various difficulties to meaningfully measure the performance of the parallelization (Thomas)<br>
-•	As a part of the above, repurpose the timing code from previous assignments to be able to accurately time the algorithm’s performance (Thomas)  <b><br>
+•	As a part of the above, repurpose the timing code from previous assignments to be able to accurately time the algorithm’s performance (Thomas)  </b><br>
 
 
 </td>
