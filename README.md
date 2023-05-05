@@ -39,7 +39,7 @@ Key: <b>bold = completed</b>, <i>italics = in progress</i>
 </td>
     <td>
 <b>•	Submit project milestone report<br>
-•	Finish correct parallel implementation: locking stack to avoid segfaults, correctly placing barriers to ensure a thread does not exit prematurely (Alex)<br>
+•	Finish correct parallel implementation: locking stack to avoid segfaults, correctly placing barriers to ensure a thread does not exit prematurely. Implement a local/distributed work queue. (Both)<br>
 •	Finish the development of a test suite consisting of 16 x 16 sudoku boards of various difficulties to meaningfully measure the performance of the parallelization (Thomas)<br>
 •	As a part of the above, repurpose the timing code from previous assignments to be able to accurately time the algorithm’s performance (Thomas)  </b><br>
 
