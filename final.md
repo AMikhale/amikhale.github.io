@@ -31,7 +31,7 @@ local stack for each thread, and a dummy stack for each thread for reversing.
 
 <i>Key operations on data structures:</i><br> 
 The board stack structure is used as a work queue – boards are pushed onto it
-and then grabbed by the thread(s) executing the solver in a FIFO manner (more on this
+and then grabbed by the thread(s) executing the solver in a LIFO manner (more on this
 in the Approach section). All of the operations done on any of the board stacks (push,
 pop, top, and empty checks) are performed through the C++ stack library. Other than
 that, we have various functions/operations that work on an individual board and the cells
@@ -133,7 +133,7 @@ work that an individual thread would otherwise be responsible for if their stack
 This helps avoid a situation where only one/a few threads are looking at viable boards
 and the remaining ones are spinning aimlessly after the non-viable boards got removed
 from the work pool.) This is where the dummy reverse private stacks are used - since
-stacks are FIFO, and since the first board on the local work stack is the most filled in
+stacks are LIFO, and since the first board on the local work stack is the most filled in
 one, we want it to be the first board on the global work stack as well.
 
 <i>Changing original algorithm:</i><br> 
