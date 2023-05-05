@@ -78,8 +78,8 @@ Key: <b>bold = completed</b>, <i>italics = in progress</i>
 
 </td>
     <td><b>•	Final pass over the code, fixing any issues (e.g. style) or last-minute bugs (Either) <br>
-•	Work on and submit the final report (Both, division of labor to be determined closer to the time)<br>
-•	Work on and present the posters at the poster session (ditto)</b><br>
+•	Work on and submit the final report (Both, division of labor to be determined closer to the time)</b><br>
+•	<i>Work on and present the posters at the poster session (ditto)</i><br>
 
 
 </td>
