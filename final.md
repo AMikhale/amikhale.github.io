@@ -1,6 +1,8 @@
 # Final Project Report
 <b>Title:</b> Sudoku Solver Parallelization
+
 <b>Code base:</b> https://github.com/thomaslee9/15-418-Sudoku-Solver
+
 <b>Summary:</b>
 We implemented a parallelized 16x16 Sudoku Solver using a local/distributed work
 stack by leveraging OpenMP on the Gates Hall Cluster machines, achieving a
@@ -8,7 +10,8 @@ maximum 27.5x multithread speedup (on the medium difficulty test case) compared 
 our code’s performance on one thread. Accounting for other limitations that have
 caused superlinearity (using the easy difficulty test case), our code has achieved 6x
 maximum multithread speedup.
-<b>Background:</b>
+
+<b>Background:</b><br> 
 <i>Key data structures:</i><br> 
 We used three main data structures for our Sudoku Solver: a cell, a board, and a
 board stack. A cell data structure represents one of the cells in the sudoku board. It
@@ -181,7 +184,7 @@ We did not start from an existing piece of code for the main sudoku solver. We
 adapted the timer code and file-loading code from Assignments 3 and 4 for our
 purposes.
 
-<b>Results:</b>
+<b>Results:</b><br> 
 <i>Measuring performance:</i><br> 
 We measured the performance of our algorithm via wall-clock time, as well as
 speedup on multiple threads. Our main focus was optimizing speedup due to
@@ -193,6 +196,8 @@ As mentioned, all of the inputs we tested on were 16x16 “proper” sudoku boar
 difficulties - easy, medium, and hard (with harder boards having less initial input clues,
 as well as having them arranged in ways that canceled out less options for the empty
 cells from the start.)
+
+<i>Graphs: </i><br> 
 <img src="docs/assets/med.png" alt="speed of medium sudoku board" class="inline"/>
 <img src="docs/assets/hard.png" alt="speed of hard sudoku board" class="inline"/>
 <img src="docs/assets/Picture1.png" alt="speedup" class="inline"/>
@@ -207,7 +212,7 @@ cells from the start.)
 
 <i>Limiting factors:</i><br> 
 	Before the local stacks were introduced, we suspect that our performance was mainly limited by the synchronization costs of the global board stack. This is due to the fact that Sudoku boards are relatively small integer matrices, and the algorithm to solve them only requires quick lookup and simple calculations. Thus solving an individual board was not likely to be memory bandwidth or computationally bound. The first pass of the threaded solver, in which all threads pushed and popped directly from the global stack every iteration, proved to be slower than the sequential version, running 7 seconds for the standard medium test case as compared to 6 seconds. It also resulted in a lower speedup on multiple threads, indicating that a higher number of threads introduced greeted synchronization overhead. The time taken to solve a board on multiple threads was highly variable and depended on the number of times the stack lock was pinged - it ranged from around 3 million to around 800k, with the latter resulting in much better speedup (reported below), but this was not guaranteed and unpredictable since it was highly dependent on the order in which the threads end up popping the pending boards and executing them. The issue being a synchronization overhead was further reinforced by the fact that 16 threads gave a consistently worse performance than 8 (and sometimes even 2 and 1) threads. <br> 
-Only when reducing the contention on this global stack by implementing a local board accumulator was the proper speedup observed. The following is total execution time in seconds for the standard medium test case for the old global stack and the current local stack implementations:
+Only when reducing the contention on this global stack by implementing a local board accumulator was the proper speedup observed. The following is total execution time in seconds for the standard medium test case for the old global stack and the current local stack implementations:<br> 
 <img src="docs/assets/table.png" alt="table of speeds for global/local stacks" class="inline"/>
 As discussed above, however, running the local stack implementation on hard and medium test cases resulted in superlinearity for large number of threads (16 on hard, and 8 & 16 for hard and medium.) This has exposed a different limiting factor that comes into play mainly because of the limiting number of resources of having less cores. Running our code with perf on these test cases, we determined that the CPU utilization is very high on less cores (utilizing all the available CPU resources when less than 8 cores are used), which suggests to us that the limiting factor may have been memory - specifically, the memory necessary to store all the possible board options on the board stack(s). This tracks with the fact that no such superlinearity was observed for the easy test case, the speedup leveling off at about 6x for 8 threads, and the CPU utilization was lower. The easy test case naturally has less possible pending boards on the board stacks since there are less empty cells to be filled, meaning the memory required for storing them all is much lower.
 
@@ -217,13 +222,12 @@ As discussed above, however, running the local stack implementation on hard and 
 <i>Choice of machine target: </i><br> 
 We believe that a CPU was definitely a good choice for our purposes - multiple threads operating on a work stack have resulted in a notable speedup, as did adding additional CPU resources. However, if we were to work on this project further, we could explore GPU/CUDA/SIMD as an option for parallelization within a board, as opposed to over the work stack - for example, CUDA seems like a useful option for being able to update the valid options of neighboring cells after filling in a cell with a value, since this performs the same non-branching operation across a reasonably large number of cells. And since this was the part of our code where the most time was spent as mentioned above, this could’ve had a significant effect on the overall speed of our algorithm. 
 
-<b>References:</b>
-https://afteracademy.com/blog/sudoku-solver/
-https://cse.buffalo.edu/faculty/miller/Courses/CSE633/Sankar-Spring-2014-CSE633.pdf
+<b>References:</b><br> 
+https://afteracademy.com/blog/sudoku-solver/<br> 
+https://cse.buffalo.edu/faculty/miller/Courses/CSE633/Sankar-Spring-2014-CSE633.pdf<br> 
 https://1sudoku.com/sudoku-variants/super-sudoku-16x16
 
-
-<b>Work list/distribution:</b>
+<b>Work list/distribution:</b><br> 
 Setting up Code Base and creating initial Data Structures & Helper Functions:
 	Thomas Lee
 
