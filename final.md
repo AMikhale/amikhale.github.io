@@ -3,7 +3,7 @@
 
 <b>Code base:</b> https://github.com/thomaslee9/15-418-Sudoku-Solver
 
-<b>Summary:</b>
+<b>Summary:</b><br> 
 We implemented a parallelized 16x16 Sudoku Solver using a local/distributed work
 stack by leveraging OpenMP on the Gates Hall Cluster machines, achieving a
 maximum 27.5x multithread speedup (on the medium difficulty test case) compared to
@@ -91,7 +91,7 @@ thread execution sequence are non-deterministic: the randomness of the permutati
 path due to the specific timings of multi-threaded push & pop would make SIMD
 impossible to manage.
 
-<b>Approach:</b>
+<b>Approach:</b><br> 
 <i>Technologies used:</i><br> 
 The parallelism in our solver comes from OpenMP, and the code is written in
 C++. We wrote and tested it on the Gates Hall Cluster machines. We have also tried
@@ -213,7 +213,7 @@ cells from the start.)
 <i>Limiting factors:</i><br> 
 	Before the local stacks were introduced, we suspect that our performance was mainly limited by the synchronization costs of the global board stack. This is due to the fact that Sudoku boards are relatively small integer matrices, and the algorithm to solve them only requires quick lookup and simple calculations. Thus solving an individual board was not likely to be memory bandwidth or computationally bound. The first pass of the threaded solver, in which all threads pushed and popped directly from the global stack every iteration, proved to be slower than the sequential version, running 7 seconds for the standard medium test case as compared to 6 seconds. It also resulted in a lower speedup on multiple threads, indicating that a higher number of threads introduced greeted synchronization overhead. The time taken to solve a board on multiple threads was highly variable and depended on the number of times the stack lock was pinged - it ranged from around 3 million to around 800k, with the latter resulting in much better speedup (reported below), but this was not guaranteed and unpredictable since it was highly dependent on the order in which the threads end up popping the pending boards and executing them. The issue being a synchronization overhead was further reinforced by the fact that 16 threads gave a consistently worse performance than 8 (and sometimes even 2 and 1) threads. <br> 
 Only when reducing the contention on this global stack by implementing a local board accumulator was the proper speedup observed. The following is total execution time in seconds for the standard medium test case for the old global stack and the current local stack implementations:<br> 
-<img src="docs/assets/table.png" alt="table of speeds for global/local stacks" class="inline"/>
+<img src="docs/assets/table.png" alt="table of speeds for global/local stacks" class="inline"/><br> 
 As discussed above, however, running the local stack implementation on hard and medium test cases resulted in superlinearity for large number of threads (16 on hard, and 8 & 16 for hard and medium.) This has exposed a different limiting factor that comes into play mainly because of the limiting number of resources of having less cores. Running our code with perf on these test cases, we determined that the CPU utilization is very high on less cores (utilizing all the available CPU resources when less than 8 cores are used), which suggests to us that the limiting factor may have been memory - specifically, the memory necessary to store all the possible board options on the board stack(s). This tracks with the fact that no such superlinearity was observed for the easy test case, the speedup leveling off at about 6x for 8 threads, and the CPU utilization was lower. The easy test case naturally has less possible pending boards on the board stacks since there are less empty cells to be filled, meaning the memory required for storing them all is much lower.
 
 <i>Deeper analysis:</i><br> 
