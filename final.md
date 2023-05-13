@@ -1,8 +1,6 @@
 # Final Project Report
 <b>Title:</b> Sudoku Solver Parallelization
 
-<b>Code base:</b> https://github.com/thomaslee9/15-418-Sudoku-Solver
-
 <b>Summary:</b><br> 
 We implemented a parallelized 16x16 Sudoku Solver using a local/distributed work
 stack by leveraging OpenMP on the Gates Hall Cluster machines, achieving a
